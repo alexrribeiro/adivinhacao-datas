@@ -85,7 +85,6 @@ public class AdivinhacaoDatas {
             } else if (resposta != 2) {
                 System.out.println("Entrada inválida!");
                 i--;
-                continue;
             }
         }
 
