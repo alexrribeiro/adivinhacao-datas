@@ -57,25 +57,25 @@ public class AdivinhacaoDatas {
                 O seu %s de nascimento está entre os números abaixo?
                 %s
                 Pressione [1] para sim e [2] para não."""
-                    .formatted(unidadeDeTempo, unidadeDeTempo == "dia" ? preenchimentoDias[i] : preenchimentoMeses[i]);
+                    .formatted(unidadeDeTempo, unidadeDeTempo.equals("dia") ? preenchimentoDias[i] : preenchimentoMeses[i]);
             System.out.println(mensagem);
             resposta = sc.nextInt();
 
             if (resposta == 1) {
-                switch (i+1) {
-                    case 1:
+                switch (i) {
+                    case 0:
                         numeroEncontrado += 1;
                         break;
-                    case 2:
+                    case 1:
                         numeroEncontrado += 2;
                         break;
-                    case 3:
+                    case 2:
                         numeroEncontrado += 4;
                         break;
-                    case 4:
+                    case 3:
                         numeroEncontrado += 8;
                         break;
-                    case 5:
+                    case 4:
                         numeroEncontrado += 16;
                         break;
                     default:
