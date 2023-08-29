@@ -40,6 +40,7 @@ public class AdivinhacaoDatas {
     }
 
     int adivinharNumero(String unidadeDeTempo) {
+        numeroEncontrado = 0;
 
         if (unidadeDeTempo.equals("dia")) {
             qtdCalendarios = 5;
@@ -47,6 +48,8 @@ public class AdivinhacaoDatas {
         } else if (unidadeDeTempo.equals("mês")) {
             qtdCalendarios = 4;
             preencherMeses();
+        } else {
+            System.out.println("Unidade de tempo inválida!");
         }
 
         for (int i = 0; i < qtdCalendarios; i++) {
@@ -57,8 +60,35 @@ public class AdivinhacaoDatas {
                     .formatted(unidadeDeTempo, unidadeDeTempo == "dia" ? preenchimentoDias[i] : preenchimentoMeses[i]);
             System.out.println(mensagem);
             resposta = sc.nextInt();
+
+            if (resposta == 1) {
+                switch (i+1) {
+                    case 1:
+                        numeroEncontrado += 1;
+                        break;
+                    case 2:
+                        numeroEncontrado += 2;
+                        break;
+                    case 3:
+                        numeroEncontrado += 4;
+                        break;
+                    case 4:
+                        numeroEncontrado += 8;
+                        break;
+                    case 5:
+                        numeroEncontrado += 16;
+                        break;
+                    default:
+                        System.out.println("Ocorreu um erro.");
+                        break;
+                }
+            } else if (resposta != 2) {
+                System.out.println("Entrada inválida!");
+                i--;
+                continue;
+            }
         }
 
-        return 0;
+        return numeroEncontrado;
     }
 }
