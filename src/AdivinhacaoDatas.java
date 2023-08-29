@@ -35,7 +35,7 @@ public class AdivinhacaoDatas {
         int dia = adivinharNumero("dia");
         int mes = adivinharNumero("mês");
 
-        mensagem = String.format("A sua data de nascimento é %2d/%2d.", dia, mes);
+        mensagem = String.format("A sua data de nascimento é %02d/%02d.", dia, mes);
         return mensagem;
     }
 
